@@ -71,12 +71,116 @@ El frontend está construido con las siguientes tecnologías:
 
 ### Backend
 
-El backend expone varias rutas para interactuar con la base de datos MongoDB. Por ejemplo:
+#### Rutas de la API
 
-- `GET /products`: Obtiene una lista de productos.
-- `POST /products`: Crea un nuevo ítem.
-- `PUT /products/:id`: Actualiza un producto por su ID.
-- `DELETE /products/:id`: Elimina un producto por su ID.
+##### Productos
+
+###### Obtener lista de productos
+
+- **Método**: GET
+- **Ruta**: `/products`
+- **Descripción**: Retorna una lista de productos almacenados en la base de datos.
+- **Parámetros de consulta opcionales**:
+  - `limit` (número): Define cuántos productos se devuelven por página.
+  - `page` (número): Define el número de página a consultar.
+
+**Ejemplo de uso**:
+
+```http
+GET /products?limit=10&page=2
+```
+
+**Respuesta esperada (200 OK)**:
+
+```json
+{
+  "products": [
+    {
+      "_id": "65a2f1b2d7e9c",
+      "name": "Ibuprofeno",
+      "price": 1200,
+      "stock": 5
+    }
+    ...
+  ],
+  "total": 100,
+  "limit": 10,
+  "page": 2
+}
+```
+
+###### Crear un nuevo producto
+
+- **Método**: POST
+- **Ruta**: `/products`
+- **Descripción**: Crea un nuevo producto en la base de datos.
+- **Cuerpo de la solicitud (JSON)**:
+  ```json
+  {
+    "name": "Paracetamol",
+    "price": 1290,
+    "category": "Medicina"
+  }
+  ```
+
+**Respuesta esperada (201 Created)**:
+
+```json
+{
+  "_id": "65a3b4c8d9e7f3hdi123",
+  "name": "Paracetamol",
+  "price": 1290,
+  "category": "Medicina",
+  "stock": 0,
+  "createdAt": "2024-09-01T12:00:00.000Z",
+  "updatedAt": "2024-09-01T12:00:00.000Z"
+}
+```
+
+###### Actualizar un producto por ID
+
+- **Método**: PUT
+- **Ruta**: `/products/:id`
+- **Descripción**: Actualiza los datos de un producto específico.
+- **Parámetros de ruta**:
+  - `id` (string): ID del producto a actualizar.
+- **Cuerpo de la solicitud (JSON)**:
+  ```json
+  {
+    "price": 2000,
+    "stock": 15
+  }
+  ```
+
+**Respuesta esperada (200 OK)**:
+
+```json
+{
+  "_id": "65a3b4c8d9e7f3hdi123",
+  "name": "Paracetamol",
+  "price": 2000,
+  "stock": 15,
+  "category": "Medicina",
+  "createdAt": "2024-09-01T12:00:00.000Z",
+  "updatedAt": "2025-09-01T12:00:00.000Z"
+}
+```
+
+###### Eliminar un producto por ID
+
+- **Método**: DELETE
+- **Ruta**: `/products/:id`
+- **Descripción**: Elimina un producto de la base de datos.
+- **Parámetros de ruta**:
+  - `id` (string): ID del producto a eliminar.
+
+**Respuesta esperada (200 OK)**:
+
+```json
+{
+  "message": "Product deleted"
+}
+```
 
 ### Frontend
 
