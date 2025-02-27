@@ -75,6 +75,8 @@ El backend expone varias rutas para interactuar con la base de datos MongoDB. Po
 
 - `GET /products`: Obtiene una lista de productos.
 - `POST /products`: Crea un nuevo ítem.
+- `PUT /products/:id`: Actualiza un producto por su ID.
+- `DELETE /products/:id`: Elimina un producto por su ID.
 
 ### Frontend
 
