@@ -13,7 +13,7 @@ Este proyecto es una API RESTful para la gestión de productos, que incluye func
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tu-usuario/prueba-tecnica-soclifar.git
+   git clone https://github.com/negalxd/prueba-tecnica-soclifar.git
    cd prueba-tecnica-soclifar/backend
    ```
 
