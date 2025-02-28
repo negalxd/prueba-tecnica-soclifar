@@ -48,10 +48,6 @@ bun dev
 
 Abre [http://localhost:3000](http://localhost:3000) en el navegador para ver el resultado.
 
-## Despliegue
-
-Para este proyecto el frontend fue desplegado en Vercel para facilitar su visualización, puedes acceder a la aplicación en el siguiente enlace: [https://prueba-tecnica-soclifar.vercel.app/](https://prueba-tecnica-soclifar.vercel.app/)
-
 ## Funcionamiento del Código
 
 ### Proveedor de Productos (`/app/providers/productProvider.js`)
